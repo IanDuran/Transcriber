@@ -1,6 +1,7 @@
 package com.duran.ian.transcriber;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.CameraSource;
@@ -27,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
     private SurfaceView cameraView;
     private CameraSource cameraSource;
 
+
+    private Button btnAdd;
+    private Button btnSend;
+    private Button btnClear;
+
+    private StringBuilder builder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
         this.cameraView = (SurfaceView) findViewById(R.id.camera_view);
         this.textDisplay = (TextView) findViewById(R.id.text_display);
+
+        this.btnAdd = (Button) findViewById(R.id.btn_add);
+        this.btnSend = (Button) findViewById(R.id.btn_send);
+        this.btnClear = (Button) findViewById(R.id.btn_clear);
+
+        this.builder = new StringBuilder();
 
         TextRecognizer recognizer = new TextRecognizer.Builder(getApplicationContext()).build();
         if (!recognizer.isOperational()){
@@ -98,6 +114,32 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+        this.btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.append(textDisplay.getText().toString());
+            }
+        });
+
+        this.btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SendMessageActivity.class);
+                intent.putExtra("message", builder.toString());
+                builder.setLength(0);
+                startActivity(intent);
+            }
+        });
+
+        this.btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textDisplay.setText("");
+                builder.setLength(0);
+            }
+        });
+
     }
 
     @Override
