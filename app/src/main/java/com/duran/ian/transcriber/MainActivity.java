@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textDisplay.setText("");
-                builder.setLength(0);
+                //builder.setLength(0);
             }
         });
 
