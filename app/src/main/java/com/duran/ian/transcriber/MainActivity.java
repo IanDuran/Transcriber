@@ -102,12 +102,12 @@ public class MainActivity extends AppCompatActivity {
                         textDisplay.post(new Runnable() {
                             @Override
                             public void run() {
-                                StringBuilder builder = new StringBuilder();
+                                StringBuilder tempBuilder = new StringBuilder();
                                 for (int i = 0; i < items.size(); i++) {
-                                    builder.append(items.valueAt(i).getValue());
-                                    builder.append("\n");
+                                    tempBuilder.append(items.valueAt(i).getValue());
+                                    tempBuilder.append("\n");
                                 }
-                                textDisplay.setText(builder.toString());
+                                textDisplay.setText(tempBuilder.toString());
                             }
                         });
                     }

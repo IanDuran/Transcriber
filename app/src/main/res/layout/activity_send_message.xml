@@ -19,7 +19,8 @@
             android:id="@+id/edit_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"/>
+            android:inputType="textCapSentences|textMultiLine"
+            android:gravity="start|top" />
 
     </ScrollView>
 

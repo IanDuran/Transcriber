@@ -25,12 +25,10 @@ public class SendMessageActivity extends AppCompatActivity {
         this.editMessage = (EditText) findViewById(R.id.edit_message);
         this.btnSendMessage = (Button) findViewById(R.id.btn_dispatch);
 
-        if(savedInstanceState != null){
-            Bundle extras = getIntent().getExtras();
-            if(extras != null){
-                String message = extras.getString("message");
-                editMessage.setText(message);
-            }
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            String message = extras.getString("message");
+            editMessage.setText(message);
         }
 
         this.btnSendMessage.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +47,7 @@ public class SendMessageActivity extends AppCompatActivity {
     private static class SendMessageTask extends AsyncTask<String, Integer, Void>{
 
         private final int PORT = 6666;
-        private final String IP_ADDRESS = "";
+        private final String IP_ADDRESS = "192.168.0.109";
 
         @Override
         protected Void doInBackground(String... strings) {
