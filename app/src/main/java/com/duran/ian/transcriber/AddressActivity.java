@@ -33,7 +33,7 @@ public class AddressActivity extends AppCompatActivity {
         String currentAddress = preferences.getString(getString(R.string.address), "");
 
         if(!currentAddress.equals("")){
-            String[] numbers = currentAddress.split(".");
+            String[] numbers = currentAddress.split("\\.");
             this.editFirstNumber.setHint(numbers[0]);
             this.editSecondNumber.setHint(numbers[1]);
             this.editThirdNumber.setHint(numbers[2]);
@@ -53,6 +53,7 @@ public class AddressActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString(getString(R.string.address), newAddress);
                     editor.apply();
+                    finish();
                 }
             }
         });

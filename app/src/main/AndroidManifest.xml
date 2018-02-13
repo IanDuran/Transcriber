@@ -25,8 +25,12 @@
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="ocr" />
 
-        <activity android:name=".SendMessageActivity" />
-        <activity android:name=".AddressActivity"></activity>
+        <activity android:name=".SendMessageActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".AddressActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
     </application>
 
 </manifest>

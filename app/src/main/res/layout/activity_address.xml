@@ -10,12 +10,13 @@
 
     <EditText
         android:id="@+id/edit_first_number"
-        android:layout_width="wrap_content"
+        android:layout_width="48dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/first_dot"
         android:layout_toStartOf="@id/first_dot"
         android:inputType="number"
-        android:maxLength="3" />
+        android:maxLength="@integer/edit_max_chars"
+        android:hint="@string/address_hint"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/first_dot"
@@ -27,28 +28,33 @@
 
     <EditText
         android:id="@+id/edit_second_number"
-        android:layout_width="wrap_content"
+        android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:layout_toStartOf="@id/second_dot"
-        android:layout_alignBottom="@id/second_dot"
-        android:maxLength="3" />
+        android:layout_alignBottom="@id/edit_first_number"
+        android:maxLength="@integer/edit_max_chars"
+        android:hint="@string/address_hint"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/second_dot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="."
+        android:layout_alignBottom="@id/edit_first_number"
         android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/edit_third_number"
-        android:layout_width="wrap_content"
+        android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:layout_toEndOf="@id/second_dot"
-        android:layout_alignBottom="@id/second_dot"
-        android:maxLength="3" />
+        android:layout_alignBottom="@id/edit_fourth_number"
+        android:maxLength="@integer/edit_max_chars"
+        android:hint="@string/address_hint"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/third_dot"
@@ -60,13 +66,13 @@
 
     <EditText
         android:id="@+id/edit_fourth_number"
-        android:layout_width="wrap_content"
+        android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:layout_toEndOf="@id/third_dot"
-        android:layout_alignBottom="@id/third_dot"
-        android:maxLength="3"
-        />
+        android:maxLength="@integer/edit_max_chars"
+        android:hint="@string/address_hint"
+        android:gravity="center"/>
 
     <Button
         android:id="@+id/btn_save"

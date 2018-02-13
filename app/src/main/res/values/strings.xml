@@ -7,4 +7,5 @@
     <string name="address">Address</string>
     <string name="save">Save</string>
     <string name="change_address">Change\nAddress</string>
+    <string name="address_hint">0</string>
 </resources>
